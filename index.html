@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#101a19" />
+  <title>Blackpine — The Long Way Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <canvas id="game" aria-label="Blackpine forest escape game"></canvas>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">✳</span><div><b>BLACKPINE</b><small>WILDERNESS • 11:47 PM</small></div></div>
+      <div class="objective"><span class="objective-icon">⌖</span><div><small>YOUR WAY OUT</small><strong id="objectiveText">Find the trail markers <em id="markerCount">0 / 3</em></strong></div></div>
+      <div class="top-right"><div class="sound-wrap"><button id="soundBtn" class="icon-btn" aria-label="Toggle sound">♫</button><span>SOUND</span></div><div class="pause-wrap"><button id="pauseBtn" class="icon-btn" aria-label="Pause game">Ⅱ</button><span>PAUSE</span></div></div>
+    </header>
+    <section class="hud-left" aria-label="Player status">
+      <div class="meter-card"><div class="meter-heading"><span>STAMINA</span><span id="staminaText">100%</span></div><div class="meter-track"><i id="staminaBar"></i></div><div class="meter-note">Hold <kbd>SHIFT</kbd> to run</div></div>
+      <div class="meter-card light-card"><div class="meter-heading"><span>FLASHLIGHT</span><span id="batteryText">100%</span></div><div class="meter-track"><i id="batteryBar"></i></div><div class="meter-note">Press <kbd>F</kbd> to toggle</div></div>
+      <div class="meter-card fear-card"><div class="meter-heading"><span><i class="pulse-dot"></i> DANGER</span><span id="dangerText">QUIET</span></div><div class="meter-track danger-track"><i id="dangerBar"></i></div><div class="meter-note" id="dangerNote">Keep to the trail. Move softly.</div></div>
+    </section>
+    <aside class="map-card"><div class="map-title"><span>FIELD MAP</span><span>BLACKPINE RIDGE</span></div><canvas id="minimap" width="180" height="132"></canvas><div class="map-legend"><i></i> YOU <i class="legend-exit"></i> EXIT</div></aside>
+    <div class="story-toast" id="toast" aria-live="polite"></div>
+    <div class="center-message" id="centerMessage"></div>
+    <div class="mobile-controls" aria-label="Touch controls">
+      <div class="dpad"><button data-dir="up" aria-label="Move up">▲</button><div><button data-dir="left" aria-label="Move left">◀</button><button data-dir="down" aria-label="Move down">▼</button><button data-dir="right" aria-label="Move right">▶</button></div></div>
+      <div class="touch-actions"><button class="flash-touch" id="flashTouch" aria-label="Toggle flashlight">◉<small>LIGHT</small></button><button class="run-touch" id="runTouch"><span>↗</span> RUN</button></div>
+    </div>
+    <div class="overlay" id="overlay">
+      <div class="intro-card">
+        <div class="eyebrow"><i></i> A NIGHT IN BLACKPINE FOREST</div>
+        <h1>The Long Way<br><em>Home.</em></h1>
+        <p class="intro-copy">The trail disappeared an hour ago. Your phone is dead, the woods are too quiet, and something big is moving between the trees.</p>
+        <div class="briefing"><div><span class="brief-icon">⌖</span><p><b>Find the trail</b><small>Recover 3 reflective markers to reveal the ranger gate.</small></p></div><div><span class="brief-icon">◉</span><p><b>Don't let it close in</b><small>Running makes noise. Use your light, but watch the battery.</small></p></div></div>
+        <button id="startBtn" class="start-btn">ENTER THE FOREST <span>→</span></button>
+        <div class="controls-note"><span>W A S D</span> / <span>ARROWS</span> MOVE <i>•</i> <span>SHIFT</span> RUN <i>•</i> <span>F</span> FLASHLIGHT</div>
+      </div>
+      <div class="overlay-grain"></div>
+    </div>
+    <footer class="bottom-hint"><span class="hint-key">F</span> FLASHLIGHT <i>·</i> <span class="hint-key">SHIFT</span> RUN <span class="version">FIELD LOG 07 — OCT 14</span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
